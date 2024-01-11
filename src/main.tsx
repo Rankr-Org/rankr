@@ -4,9 +4,10 @@ import App from './App.tsx'
 import './index.css'
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 
+
 const router = createBrowserRouter([
     {
-        path: "/",
+        path: "/rankr/",
         element: <App/>,
     },
 ]);
