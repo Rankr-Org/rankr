@@ -25,17 +25,24 @@ const App = () => {
                 {state.map((item, index) => (
                     <div style={{position: "relative", textAlign: "center"}}>
                         <img style={{width: "250px"}} key={item.id} src={item.name} alt={""}/>
-                        {index === 0 ? <div style={{
+                        {index === 0 && state.length > 1 ? <div style={{
                             position: "absolute",
                             bottom: "8px",
                             left: "8px",
                             color: "red"
-                        }}>Worst</div> : index === state.length - 1 ? <div style={{
+                        }}>Worst</div> : index === state.length - 1 && state.length > 1 ? <div style={{
                             position: "absolute",
                             bottom: "8px",
                             left: "8px",
                             color: "green"
                         }}>Best</div> : null}
+                        <Button
+                            color={"danger"}
+                            style={{position: "absolute", top: "8px", right: "8px"}}
+                            size="sm"
+                            variant="outlined"
+                            onClick={() => setState(prevState => [...prevState.slice(0, index), ...prevState.slice(index + 1)])}
+                        >X</Button>
                     </div>
                 ))}
             </ReactSortable>
