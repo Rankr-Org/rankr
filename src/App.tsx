@@ -22,8 +22,21 @@ const App = () => {
     return (
         <>
             <ReactSortable list={state} setList={setState}>
-                {state.map((item) => (
-                    <img style={{width: "250px"}} key={item.id} src={item.name} alt={""}/>
+                {state.map((item, index) => (
+                    <div style={{position: "relative", textAlign: "center"}}>
+                        <img style={{width: "250px"}} key={item.id} src={item.name} alt={""}/>
+                        {index === 0 ? <div style={{
+                            position: "absolute",
+                            bottom: "8px",
+                            left: "8px",
+                            color: "red"
+                        }}>Worst</div> : index === state.length - 1 ? <div style={{
+                            position: "absolute",
+                            bottom: "8px",
+                            left: "8px",
+                            color: "green"
+                        }}>Best</div> : null}
+                    </div>
                 ))}
             </ReactSortable>
             <Input
